@@ -125,6 +125,11 @@ The full written case study can be read here:
 - Data aggregation
 - Data visualisation
 - Business recommendation writing
+- 
+**Live project page:** https://m77rahman.github.io/Cyclistic-Case-Study/  
+**Full report (PDF):** report/cyclistic_case_study.pdf  
+**SQL:** sql/analysis.sql
+
 
 
 ---
