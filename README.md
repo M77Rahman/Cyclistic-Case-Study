@@ -88,6 +88,47 @@ By targeting riders during peak engagement periods (especially summer and weeken
 
 ---
 
+## Project Structure
+Cyclistic-Case-Study/
+│
+├── README.md # Project summary and findings
+├── report/
+│ └── cyclistic_case_study.pdf # Full written report
+├── images/
+│ ├── hourly_usage.png
+│ ├── monthly_usage.png
+│ └── weekday_usage.png
+└── sql/
+└── analysis.sql # Cleaning and analysis queries
+
+
+---
+
+## How to Reproduce the Analysis
+1. Load Divvy trip datasets into BigQuery
+2. Run `sql/analysis.sql` to create the cleaned table
+3. Run the aggregation queries to generate results
+4. Export aggregated results and visualise
+
+---
+
+## Full Report
+The full written case study can be read here:
+
+[Open the PDF report](report/cyclistic_case_study.pdf)
+
+---
+
+## Skills Demonstrated
+- SQL data cleaning
+- Behavioural analysis
+- Data aggregation
+- Data visualisation
+- Business recommendation writing
+
+
+---
+
 ## Files in this repo
 - `README.md` → case study write-up (this page)
 - `images/` → charts used in the analysis
