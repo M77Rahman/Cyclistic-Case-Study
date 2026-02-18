@@ -1,72 +1,93 @@
-Cyclistic Bike-Share Case Study
-Goal
+# Cyclistic Bike-Share Case Study (Google Data Analytics Capstone)
 
-Understand how casual riders and annual members use Cyclistic bikes differently and recommend strategies to convert casual riders into members.
+## Business Task
+Cyclistic wants to increase annual memberships.  
+This case study analyses how **casual riders** and **annual members** use bikes differently, then recommends actions to convert casual riders into members.
 
-Dataset
+## Data
+- Source: Divvy (Chicago) bike-share trip data (12 months)
+- Tooling: BigQuery (SQL) for cleaning + analysis, Google Sheets for charts
+- Total rides analysed: **5,400,008**
 
-Divvy bike trip data (12 months)
-~5.4 million rides analysed using SQL (BigQuery)
+> Note: This analysis focuses on trip behaviour. Personally identifiable information is not used.
 
-Key Findings
-1. Time of day behaviour
+---
 
-Members ride during commuting hours (08–09 and 17–18).
-Casual riders peak in afternoon hours.
+## Key Findings
 
-Meaning:
-Members = transportation
-Casual = leisure
+### 1) Members ride like commuters, casual riders ride like leisure users
+Members show clear peaks during commuting hours (around **08:00–09:00** and **17:00–18:00**).  
+Casual rides increase through late morning and peak in the afternoon.
 
-2. Seasonal behaviour
+![Hourly usage by rider type](images/hourly_usage.png)
 
-Casual rides increase heavily in summer.
-Members remain stable year-round.
+**Interpretation**
+- **Members** = routine transportation
+- **Casual** = flexible / leisure trips
 
-Meaning:
-Casual riders depend on weather
-Members depend on routine
+---
 
-3. Weekday vs weekend behaviour
+### 2) Casual ridership is strongly seasonal
+Casual rides rise heavily in warm months and peak in summer.  
+Member ridership stays relatively stable across the year.
 
-Members dominate weekdays
-Weekends become balanced
+![Monthly usage by rider type](images/monthly_usage.png)
 
-Meaning:
-Casual riders are recreational users
+**Interpretation**
+- **Casual** = weather-dependent and recreational
+- **Members** = consistent year-round usage
 
-Business Insight
+---
 
-Cyclistic has two customer types:
+### 3) Weekdays are member-heavy; weekends become more balanced
+Weekday usage is dominated by members, while weekend usage is closer between groups.
 
-Members
+![Weekday vs weekend rides](images/weekday_usage.png)
 
-commute oriented
+---
 
-predictable usage
+## Business Insight
+Cyclistic has two distinct customer segments:
 
-daily transport
+**Members (transport users)**
+- commute-oriented
+- predictable daily travel
+- consistent behaviour
 
-Casual riders
+**Casual riders (leisure users)**
+- seasonal behaviour
+- weekend activity
+- recreational trips
 
-leisure oriented
+---
 
-seasonal usage
+## Recommendations
 
-weekend activity
+### 1) Convert summer casual riders into members
+Target the warm-month peak when casual usage is highest:
+- limited-time membership discounts (summer)
+- in-app prompts after rides longer than ~15 minutes
+- station signage near high-casual areas
 
-Recommendations
+### 2) Promote commuting value during peak commute hours
+Use the weekday commute pattern to push membership:
+- compare “member cost vs pay-per-ride” for frequent users
+- messaging timed around morning/evening commuter peaks
 
-Convert summer casual riders
-Offer membership discounts during peak summer usage.
+### 3) Weekend-to-weekday conversion campaign
+Turn weekend riders into weekday riders:
+- trial weekday passes
+- first-month membership discounts after multiple weekend rides
+- “commute challenge” style onboarding
 
-Promote commuting value
-Advertise cost savings during weekday commute hours.
+---
 
-Weekend-to-weekday conversion
-Offer trial weekday passes for weekend riders.
+## Conclusion
+Casual riders are not low-value customers — they are **high-potential future members**.  
+By targeting riders during peak engagement periods (especially summer and weekends), Cyclistic can increase membership adoption and improve revenue stability.
 
-Conclusion
+---
 
-Casual riders are high-potential future members.
-Targeting them during peak engagement periods can increase long-term revenue stability.
+## Files in this repo
+- `README.md` → case study write-up (this page)
+- `images/` → charts used in the analysis
