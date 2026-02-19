@@ -91,18 +91,24 @@ Cyclistic has two clear customer segments:
 
 ---
 
-## Operational Recommendations
+## Operational Plan
 
-1. Summer conversion campaign  
-Send push notifications to casual riders between May–August after their second ride offering a limited-time commuter membership trial.
+1) Summer conversion offer
+Trigger: after a casual rider completes their 2nd ride  
+Channel: mobile push notification  
+Timing: May–August, 10:00–16:00  
+Goal: convert leisure riders during peak engagement
 
-2. Commute positioning  
-Between 07:30–09:30 and 16:30–18:30 display cost-per-ride savings messaging in-app and at high-traffic stations.
+2) Commute savings messaging
+Channel: in-app banner + station display  
+Timing: 07:30–09:30 and 16:30–18:30  
+Goal: reposition service as daily transport
 
-3. Weekend-to-weekday shift  
-Offer weekday ride challenges to weekend riders: complete three weekday rides → receive discounted first-month membership.
+3) Weekend rider activation
+Trigger: 3 weekend rides in 30 days  
+Offer: discounted first month membership  
+Goal: shift recreational riders into weekday usage
 
----
 
 ## Next Monday Playbook
 
@@ -143,7 +149,29 @@ Casual riders completed 1.9M rides in the analysed year.
 
 If 5% of active casual riders convert during summer months, Cyclistic could gain ~95,000 new members and increase predictable recurring revenue while reducing seasonal volatility.
 
+## Success Metrics
+
+Primary KPI:
+- Weekly casual → member conversion rate
+
+Secondary KPIs:
+- % of targeted riders converting
+- Average member rides per week after conversion
+- Weekday ride share change after campaign
+
+These metrics allow evaluation of behavioural change rather than short-term engagement spikes.
+
 ---
+## Validation Plan
+
+Campaigns should be evaluated using controlled experiments:
+
+- Compare targeted riders vs similar non-targeted riders
+- Run tests during identical seasonal periods
+- Measure uplift above baseline conversion
+
+This ensures observed improvements are caused by the intervention rather than seasonal variation.
+
 
 ## How We Measure Success
 
@@ -174,15 +202,18 @@ Supporting metrics:
 
 ---
 
-## Data Limitations
+## Analytical Limitations
 
-- Weather not included (affects seasonality)
-- Tourist vs resident unknown
-- Pricing plan details unavailable
-- Station geography not analysed
-- Trip purpose inferred from behaviour patterns
+The dataset captures behaviour but not context:
 
-Findings therefore indicate opportunity but require experimental validation.
+- Weather conditions unavailable (affects seasonal usage)
+- Tourist vs resident riders unknown
+- Pricing sensitivity not included
+- Station geography not analysed (leisure hotspots likely)
+- Trip purpose inferred rather than observed
+
+Therefore findings identify opportunities but require experimental validation before large-scale rollout.
+
 
 ---
 
