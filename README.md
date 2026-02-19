@@ -1,7 +1,8 @@
-# Cyclistic Bike-Share Case Study (Google Data Analytics Capstone)
+# Cyclistic Bike-Share Case Study
 
 Analysed **5.4 million ride records in a cloud data warehouse (Google BigQuery)** using analytical SQL.
-Identified clear commuter vs leisure behaviour patterns and designed targeted marketing actions to improve membership conversion and revenue stability.
+
+Identified commuter vs leisure behavioural segments and designed targeted marketing actions to improve membership conversion and revenue stability.
 
 **Live project:** https://m77rahman.github.io/Cyclistic-Case-Study/  
 **Full report (PDF):** report/cyclistic_case_study.pdf  
@@ -9,18 +10,38 @@ Identified clear commuter vs leisure behaviour patterns and designed targeted ma
 ---
 
 ## Business Problem
-Cyclistic wants to increase annual memberships.  
-This analysis answers: **How do casual riders and members use bikes differently, and what actions can increase membership conversion?**
+Cyclistic wants to increase annual memberships by converting casual riders into repeat customers.  
+This analysis determines how rider behaviour differs and what operational actions can realistically drive conversion.
 
 ---
 
-## Data Environment (Data Warehouse Approach)
-This analysis was performed in **Google BigQuery**, enabling efficient querying of a **multi-million row** dataset without local processing.  
-Queries were written to aggregate results in the warehouse before export to reduce data movement and improve performance.
+## Data Environment (Warehouse Approach)
+This analysis was performed in **Google BigQuery**, allowing efficient querying of a multi-million row dataset without local processing.
 
-- Environment: Google BigQuery (cloud data warehouse)
-- Data scale: 5,400,008 cleaned ride records (12 months)
-- Output: aggregated tables exported for visualisation
+Queries aggregated data inside the warehouse before export to reduce scanning cost and improve performance.
+
+- Platform: Google BigQuery
+- Records analysed: 5,400,008 rides (12 months)
+- Output: Aggregated behavioural summaries for decision making
+
+---
+
+## Method
+- Queried large datasets using Google BigQuery
+- Performed data cleaning and transformation using analytical SQL
+- Built derived features from timestamp data (ride length, hour, weekday, season)
+- Aggregated millions of records efficiently using warehouse functions
+- Exported summarised outputs for business interpretation
+
+---
+
+## Query Optimisation
+To reduce processing cost and improve performance:
+
+- Selected only required columns
+- Filtered invalid rides before aggregation
+- Aggregated inside the warehouse before exporting
+- Avoided repeated full-table scans using staged tables
 
 ---
 
@@ -28,6 +49,8 @@ Queries were written to aggregate results in the warehouse before export to redu
 - Members: **3,484,202 rides (64.52%)**
 - Casual: **1,915,806 rides (35.48%)**
 - Avg ride length: Casual **19.41 min** vs Member **11.68 min**
+
+---
 
 ## Behaviour Summary
 
@@ -38,26 +61,9 @@ Queries were written to aggregate results in the warehouse before export to redu
 | Week pattern | Weekday dominant | Weekend heavy |
 | Trip purpose | Transportation | Leisure |
 
-
-## Method (High-Level)
-- Queried large datasets using **Google BigQuery**
-- Performed **data cleaning and transformation** using analytical SQL
-- Built **derived features** from timestamp data (ride length, hour, weekday, month)
-- Aggregated millions of records efficiently using warehouse functions
-- Exported only summarised outputs for charting
-
 ---
 
-## Query Optimisation
-To reduce data scanning and improve performance:
-- selected only required columns
-- filtered invalid rides early (before aggregation)
-- aggregated in BigQuery before exporting
-- avoided repeated full-table scans by staging tables
-
----
-
-## Key Findings (Charts = Conclusions)
+## Key Findings
 
 ### Members show commute peaks at 08:00–09:00 and 17:00–18:00
 ![Members show commute peaks](images/hourly_usage.png)
@@ -70,43 +76,81 @@ To reduce data scanning and improve performance:
 
 ---
 
-## Business Insight (Behavioural Segmentation)
+## Business Insight
+Cyclistic has two clear customer segments:
+
 **Members (transport users)**
-- commute-oriented
 - predictable daily travel
-- consistent year-round usage
+- routine commuting behaviour
+- stable year-round usage
 
 **Casual riders (leisure users)**
-- seasonal and weather-driven behaviour
-- higher weekend share
-- recreational use patterns
+- seasonal and weather-dependent behaviour
+- weekend-focused activity
+- recreational usage patterns
 
 ---
 
-## Recommendations
-1. **Convert summer casual riders into members**  
-   Run limited-time membership offers during peak warm months when casual usage is highest.
+## Operational Recommendations
 
-2. **Promote commuting value during peak commute hours**  
-   Position membership around cost-per-ride savings for repeat weekday riders.
+1. Summer conversion campaign  
+Send push notifications to casual riders between May–August after their second ride offering a limited-time commuter membership trial.
 
-3. **Weekend-to-weekday conversion campaign**  
-   Use trial weekday passes and first-month discounts to shift weekend riders toward weekday habits.
+2. Commute positioning  
+Between 07:30–09:30 and 16:30–18:30 display cost-per-ride savings messaging in-app and at high-traffic stations.
 
----
-
-## Business Impact
-This analysis enables Cyclistic to:
-- target marketing during high conversion periods (summer + weekends)
-- personalise messaging for commuter vs leisure segments
-- improve membership revenue predictability by reducing seasonal dependence
+3. Weekend-to-weekday shift  
+Offer weekday ride challenges to weekend riders: complete three weekday rides → receive discounted first-month membership.
 
 ---
 
-## Files in this repo
-- `report/cyclistic_case_study.pdf` → full written report
-- `images/` → charts used in the write-up
-- `sql/01_cleaning.sql` → cleaning stage
-- `sql/02_feature_engineering.sql` → derived features
-- `sql/03_aggregation.sql` → rollups for charts
-- `sql/04_business_questions.sql` → queries answering business questions
+## Estimated Business Impact (Reasoned Estimate)
+
+Casual riders completed 1.9M rides in the analysed year.
+
+If 5% of active casual riders convert during summer months, Cyclistic could gain approximately 95,000 new members and increase predictable recurring revenue while reducing seasonal volatility.
+
+---
+
+## Practical Implementation Considerations
+
+- Use existing channels (app notifications, email, station screens)
+- Target riders after multiple rides rather than first use
+- Limit discount duration to protect long-term revenue
+- Focus campaigns during peak casual usage periods
+
+---
+
+## Measuring Success
+
+Campaign performance should be evaluated using:
+
+- Casual → member conversion rate
+- Change in weekday ride share
+- Repeat usage frequency after conversion
+- Membership retention after first month
+
+A/B testing should compare targeted vs non-targeted riders to confirm causal impact.
+
+---
+
+## Data Limitations
+
+The dataset records trip behaviour but lacks contextual variables:
+
+- Weather conditions not included
+- Tourist vs resident status unknown
+- Pricing sensitivity unavailable
+- Marketing exposure history unavailable
+
+Therefore findings identify behavioural opportunities but should be validated experimentally.
+
+---
+
+## Files in this Repository
+- `report/cyclistic_case_study.pdf` — full written report
+- `images/` — visualisations
+- `sql/01_cleaning.sql` — data preparation
+- `sql/02_feature_engineering.sql` — derived features
+- `sql/03_aggregation.sql` — aggregated outputs
+- `sql/04_business_questions.sql` — business analysis queries
