@@ -24,6 +24,12 @@ Queries were written to aggregate results in the warehouse before export to redu
 
 ---
 
+## Headline Results
+- Members: **3,484,202 rides (64.52%)**
+- Casual: **1,915,806 rides (35.48%)**
+- Avg ride length: Casual **19.41 min** vs Member **11.68 min**
+
+
 ## Method (High-Level)
 - Queried large datasets using **Google BigQuery**
 - Performed **data cleaning and transformation** using analytical SQL
