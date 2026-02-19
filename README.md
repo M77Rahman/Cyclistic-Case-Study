@@ -16,9 +16,9 @@ This analysis determines how rider behaviour differs and what operational action
 ---
 
 ## Data Environment (Warehouse Approach)
-This analysis was performed in **Google BigQuery**, allowing efficient querying of a multi-million row dataset without local processing.
+This analysis was performed in **Google BigQuery**, enabling efficient querying of a multi-million row dataset without local processing.
 
-Queries aggregated data inside the warehouse before export to reduce scanning cost and improve performance.
+Queries aggregated results inside the warehouse before export to reduce scanning cost and improve performance.
 
 - Platform: Google BigQuery
 - Records analysed: 5,400,008 rides (12 months)
@@ -65,13 +65,13 @@ To reduce processing cost and improve performance:
 
 ## Key Findings
 
-### Members show commute peaks at 08:00–09:00 and 17:00–18:00
+### Members commute: target 07:30–09:30 messaging
 ![Members show commute peaks](images/hourly_usage.png)
 
-### Casual riders depend heavily on the summer season
+### Summer is the conversion window: run May–August offers
 ![Casual riders depend on summer](images/monthly_usage.png)
 
-### Weekdays are member-heavy; weekends become more balanced
+### Weekend riders are conversion candidates: shift to weekday habits
 ![Weekdays vs weekends](images/weekday_usage.png)
 
 ---
@@ -104,53 +104,92 @@ Offer weekday ride challenges to weekend riders: complete three weekday rides �
 
 ---
 
-## Estimated Business Impact (Reasoned Estimate)
+## Next Monday Playbook
+
+### Summer conversion trial
+
+| Element | Decision |
+|------|------|
+| Channel | Mobile app push notification + email |
+| Timing | May–August, 10:00–16:00 |
+| Trigger | After 2nd ride OR ride length > 15 min |
+| Offer | 1-month discounted membership |
+| Target | High-casual usage stations |
+| Metric | Conversion rate + repeat weekday rides |
+
+### Commute positioning
+
+| Element | Decision |
+|------|------|
+| Channel | In-app banner + station screen |
+| Timing | 07:30–09:30 and 16:30–18:30 |
+| Message | Cost-per-ride savings |
+| Metric | Weekday member ride share |
+
+### Weekend-to-weekday shift
+
+| Element | Decision |
+|------|------|
+| Channel | Push notification |
+| Trigger | 3 weekend rides within 30 days |
+| Offer | Discounted first month |
+| Metric | Weekday adoption rate |
+
+---
+
+## Estimated Business Impact
 
 Casual riders completed 1.9M rides in the analysed year.
 
-If 5% of active casual riders convert during summer months, Cyclistic could gain approximately 95,000 new members and increase predictable recurring revenue while reducing seasonal volatility.
+If 5% of active casual riders convert during summer months, Cyclistic could gain ~95,000 new members and increase predictable recurring revenue while reducing seasonal volatility.
 
 ---
 
-## Practical Implementation Considerations
+## How We Measure Success
 
-- Use existing channels (app notifications, email, station screens)
-- Target riders after multiple rides rather than first use
-- Limit discount duration to protect long-term revenue
-- Focus campaigns during peak casual usage periods
-
----
-
-## Measuring Success
-
-Campaign performance should be evaluated using:
-
+Primary metric:
 - Casual → member conversion rate
-- Change in weekday ride share
-- Repeat usage frequency after conversion
-- Membership retention after first month
 
-A/B testing should compare targeted vs non-targeted riders to confirm causal impact.
+Supporting metrics:
+- % targeted riders converting
+- Member rides per week after conversion
+- Weekday ride share change
+
+### Conversion Scenarios
+
+| Conversion Rate | New Members | Impact |
+|------|------|------|
+| 1% | ~19,000 | Small uplift |
+| 3% | ~57,000 | Moderate uplift |
+| 5% | ~95,000 | Significant recurring revenue |
+
+---
+
+## Validation Plan (A/B Testing)
+
+- Test offer A vs offer B during summer weekends
+- Compare high-casual stations vs control stations
+- Measure uplift vs baseline conversion
+- Track retention after first month
 
 ---
 
 ## Data Limitations
 
-The dataset records trip behaviour but lacks contextual variables:
+- Weather not included (affects seasonality)
+- Tourist vs resident unknown
+- Pricing plan details unavailable
+- Station geography not analysed
+- Trip purpose inferred from behaviour patterns
 
-- Weather conditions not included
-- Tourist vs resident status unknown
-- Pricing sensitivity unavailable
-- Marketing exposure history unavailable
-
-Therefore findings identify behavioural opportunities but should be validated experimentally.
+Findings therefore indicate opportunity but require experimental validation.
 
 ---
 
 ## Files in this Repository
 - `report/cyclistic_case_study.pdf` — full written report
 - `images/` — visualisations
-- `sql/01_cleaning.sql` — data preparation
-- `sql/02_feature_engineering.sql` — derived features
-- `sql/03_aggregation.sql` — aggregated outputs
-- `sql/04_business_questions.sql` — business analysis queries
+- `sql/01_cleaning.sql`
+- `sql/02_feature_engineering.sql`
+- `sql/03_aggregation.sql`
+- `sql/04_business_questions.sql`
