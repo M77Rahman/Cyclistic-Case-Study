@@ -149,6 +149,127 @@ Casual riders completed 1.9M rides in the analysed year.
 
 If 5% of active casual riders convert during summer months, Cyclistic could gain ~95,000 new members and increase predictable recurring revenue while reducing seasonal volatility.
 
+
+How We Measure Success
+
+This project proposes behavioural interventions, so success must be measured through observable change rather than engagement alone.
+
+Primary KPI
+
+Weekly casual → member conversion rate
+
+Supporting KPIs
+
+% of targeted riders who convert
+
+Member rides per week after conversion (retention proxy)
+
+Weekday ride share increase after campaign
+
+Estimated Revenue Impact
+Conversion Rate	New Members	Expected Effect
+1%	~19,000	Minor uplift
+3%	~57,000	Moderate recurring revenue
+5%	~95,000	Significant revenue stabilisation
+Validation Plan (A/B Testing)
+
+To confirm causality rather than seasonal coincidence:
+
+Run campaign A vs B during identical summer weekends
+
+Use high-casual stations as treatment group
+
+Use matched stations as control group
+
+Measure uplift above baseline conversion
+
+Campaign effectiveness is defined as statistically higher conversion and retained weekday usage after the intervention.
+
+Practical Execution Playbook
+
+Summer Conversion Offer
+
+Channel: mobile push + email
+
+Trigger: after 2 casual rides or ride length > 15 minutes
+
+Timing: May–August, 10:00–16:00
+
+Goal: convert leisure users during peak engagement
+
+Commute Positioning
+
+Channel: in-app banner + station display
+
+Timing: 07:30–09:30 and 16:30–18:30
+
+Goal: reposition service as daily transport
+
+Weekend Activation
+
+Trigger: 3 weekend rides within 30 days
+
+Offer: discounted first month membership
+
+Goal: shift recreational riders into weekday usage
+
+Analytical Limitations
+
+The dataset records behaviour but lacks contextual drivers:
+
+Weather conditions unavailable (confounds seasonality)
+
+Tourist vs resident status unknown
+
+Pricing plan details unavailable
+
+Station geography not analysed (leisure hotspots likely)
+
+Trip purpose inferred rather than observed
+
+Findings therefore identify opportunities, but large-scale rollout should follow controlled testing.
+
+Reproducibility Details
+
+Dataset period: 12 months Divvy trip records
+Tables created:
+
+trips_raw → imported source data
+
+cleaned_trips → invalid durations removed
+
+featured_trips → derived time features
+
+aggregated summaries → analysis outputs
+
+Cleaning rules
+
+Remove null timestamps
+
+Remove rides < 1 minute or > 24 hours
+
+Standardise datetime fields
+
+SQL workflow
+
+Staging / loading raw data
+
+Cleaning invalid records
+
+Feature engineering from timestamps
+
+Aggregations for behaviour patterns
+
+Business question queries
+
+Decision Interpretation of Charts
+
+Commute peaks → schedule messaging at commuting hours
+
+Summer surge → concentrate conversion campaigns May–August
+
+Weekend behaviour → target recreational riders for weekday adoption
+
 ## Success Metrics
 
 Primary KPI:
