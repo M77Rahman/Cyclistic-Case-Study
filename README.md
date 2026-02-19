@@ -1,7 +1,7 @@
 # Cyclistic Bike-Share Case Study (Google Data Analytics Capstone)
 
-Analysed **5.4 million** ride records in **Google BigQuery** to identify behavioural differences between casual riders and annual members.  
-Discovered commuter vs leisure usage patterns and proposed targeted marketing actions to improve membership conversion.
+Analysed **5.4 million ride records in a cloud data warehouse (Google BigQuery)** using analytical SQL.
+Identified clear commuter vs leisure behaviour patterns and designed targeted marketing actions to improve membership conversion and revenue stability.
 
 **Live project:** https://m77rahman.github.io/Cyclistic-Case-Study/  
 **Full report (PDF):** report/cyclistic_case_study.pdf  
@@ -28,6 +28,15 @@ Queries were written to aggregate results in the warehouse before export to redu
 - Members: **3,484,202 rides (64.52%)**
 - Casual: **1,915,806 rides (35.48%)**
 - Avg ride length: Casual **19.41 min** vs Member **11.68 min**
+
+## Behaviour Summary
+
+| Behaviour | Members | Casual Riders |
+|--------|------|------|
+| Time of day | Commute peaks (08:00 & 17:00) | Afternoon usage |
+| Seasonality | Stable year-round | Strong summer dependence |
+| Week pattern | Weekday dominant | Weekend heavy |
+| Trip purpose | Transportation | Leisure |
 
 
 ## Method (High-Level)
